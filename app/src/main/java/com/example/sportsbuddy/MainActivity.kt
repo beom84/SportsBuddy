@@ -4,7 +4,7 @@ import android.os.Bundle
 
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sportsbuddy.databinding.ActivityMainBinding
-import com.example.sportsbuddy.sample.SampleActivity
+import com.example.sportsbuddy.login.LoginActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private fun initListener() {
         with(binding) {
             tvMain.setOnClickListener {
-                startActivity(SampleActivity.getIntent(this@MainActivity))
+                startActivity(LoginActivity.getIntent(this@MainActivity))
             }
         }
     }

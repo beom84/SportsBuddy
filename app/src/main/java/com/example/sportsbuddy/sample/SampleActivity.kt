@@ -4,8 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import com.example.sportsbuddy.databinding.ActivitySampleBinding
-import com.example.sportsbuddy.screen.SampleScreen
+
 
 class SampleActivity : AppCompatActivity() {
 
@@ -23,5 +28,12 @@ class SampleActivity : AppCompatActivity() {
 
     companion object {
         fun getIntent(context: Context) = Intent(context, SampleActivity::class.java)
+    }
+}
+
+@Composable
+fun SampleScreen() {
+    Column (modifier = Modifier.fillMaxWidth()){
+        Text(text = "Sample Screen")
     }
 }

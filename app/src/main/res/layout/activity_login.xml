@@ -5,10 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.SampleActivity">
+    tools:context=".login.LoginActivity">
 
     <androidx.compose.ui.platform.ComposeView
-        android:id="@+id/cv_sample"
+        android:id="@+id/cv_login"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
