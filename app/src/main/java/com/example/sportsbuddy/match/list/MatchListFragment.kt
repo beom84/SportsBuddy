@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import com.example.sportsbuddy.R
 import com.example.sportsbuddy.databinding.FragmentMatchListBinding
 import com.example.sportsbuddy.match.Match
+import com.example.sportsbuddy.match.detail.MatchDetailActivity
 
 class MatchListFragment : Fragment() {
     private var _binding : FragmentMatchListBinding? = null
@@ -38,6 +39,15 @@ class MatchListFragment : Fragment() {
         setLayoutManager()
         initMatchItems()
         initSpinner()
+        initListener()
+    }
+
+    private fun initListener() {
+        with(binding) {
+            fab.setOnClickListener {
+                // floating button 클릭 시 이벤트
+            }
+        }
     }
 
     private fun initSpinner() {
@@ -86,16 +96,20 @@ class MatchListFragment : Fragment() {
 
     private fun initMatchItems() {
         list.addAll(listOf(
-            Match("축구 할 사람","축구",  14, 22, "서울시 광진구", "최민규카츠", 22, "남자"),
-            Match("농구 할 사람", "농구", 5, 10, "서울시 광진구", "최민규카츠", 22," 남자"),
-            Match("볼링 칠 사람", "볼링", 6, 6, "서울시 광진구", "최민규카츠", 22, "남자"),
-            Match("축구 할 사람", "축구", 4, 22, "서울시 광진구", "최민규카츠", 22, "남자")
+            Match("축구 할 사람","축구",  14, 22, "서울시 광진구", "최민규카츠", 22, "남자",
+                "초심자", "수요일 18시", resources.getString(R.string.match_content_example), R.drawable.test_image),
+            Match("농구 할 사람", "농구", 5, 10, "서울시 광진구", "최민규카츠", 22,"남자",
+                "초심자", "수요일 18시", resources.getString(R.string.match_content_example), R.drawable.test_image),
+            Match("볼링 칠 사람", "볼링", 6, 6, "서울시 광진구", "최민규카츠", 22, "남자",
+                "초심자", "수요일 18시", resources.getString(R.string.match_content_example), R.drawable.test_image),
+            Match("축구 할 사람", "축구", 4, 22, "서울시 광진구", "최민규카츠", 22, "남자",
+                "초심자", "수요일 18시", resources.getString(R.string.match_content_example), R.drawable.test_image)
         ))
     }
 
     private fun setLayoutManager() {
         adapter = MatchListAdapter {
-
+            activity?.startActivity(MatchDetailActivity.getIntent(requireContext(), it))
         }
         binding.rvMatch.adapter = adapter
         adapter.setItems(list)
