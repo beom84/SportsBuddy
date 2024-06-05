@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sportsbuddy.databinding.ActivitySampleBinding
+import com.example.sportsbuddy.screen.SampleScreen
 
 class SampleActivity : AppCompatActivity() {
 
@@ -14,6 +15,9 @@ class SampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivitySampleBinding.inflate(layoutInflater)
+        binding.cvSample.setContent {
+            SampleScreen()
+        }
         setContentView(binding.root)
     }
 

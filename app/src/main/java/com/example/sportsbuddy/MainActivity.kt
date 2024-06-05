@@ -1,13 +1,11 @@
 package com.example.sportsbuddy
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
+
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sportsbuddy.databinding.ActivityMainBinding
 import com.example.sportsbuddy.sample.SampleActivity
-import com.example.sportsbuddy.screen.MainScreen
-import com.example.sportsbuddy.ui.theme.SportsBuddyTheme
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

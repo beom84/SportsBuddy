@@ -7,8 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun MainScreen() {
+fun SampleScreen() {
     Column (modifier = Modifier.fillMaxWidth()){
-        Text(text = "Main Screen")
+        Text(text = "Sample Screen")
     }
 }
