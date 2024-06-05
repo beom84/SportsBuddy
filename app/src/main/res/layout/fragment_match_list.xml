@@ -44,7 +44,7 @@
         android:paddingStart="14dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divider"
-        android:paddingEnd="30dp"
+        android:paddingEnd="38dp"
         />
 
     <ImageView
@@ -71,7 +71,7 @@
         android:paddingStart="14dp"
         app:layout_constraintStart_toEndOf="@id/spn_type"
         app:layout_constraintTop_toTopOf="@id/spn_type"
-        android:paddingEnd="30dp"
+        android:paddingEnd="38dp"
         />
 
     <ImageView
@@ -98,7 +98,7 @@
         android:paddingStart="14dp"
         app:layout_constraintStart_toEndOf="@id/spn_gender"
         app:layout_constraintTop_toTopOf="@id/spn_gender"
-        android:paddingEnd="30dp"
+        android:paddingEnd="38dp"
         />
 
     <ImageView

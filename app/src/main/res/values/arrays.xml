@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sport_types">
+        <item>종목</item>
+        <item>헬스</item>
+        <item>풋살</item>
+        <item>축구</item>
+        <item>농구</item>
+        <item>런닝</item>
+        <item>탁구</item>
+        <item>볼링</item>
+        <item>골프</item>
+        <item>싸이클</item>
+    </string-array>
+    <string-array name="gender_list">
+        <item>성별</item>
+        <item>남자</item>
+        <item>여자</item>
+    </string-array>
+    <string-array name="seoul_areas">
+        <item>지역</item>
+        <item>강남구</item>
+        <item>강동구</item>
+        <item>강북구</item>
+        <item>강서구</item>
+        <item>관악구</item>
+        <item>광진구</item>
+        <item>구로구</item>
+        <item>금천구</item>
+        <item>노원구</item>
+        <item>도봉구</item>
+        <item>동대문구</item>
+        <item>동작구</item>
+        <item>마포구</item>
+        <item>서대문구</item>
+        <item>서초구</item>
+        <item>성동구</item>
+        <item>성북구</item>
+        <item>송파구</item>
+        <item>양천구</item>
+        <item>영등포구</item>
+        <item>용산구</item>
+        <item>은평구</item>
+        <item>종로구</item>
+        <item>중구</item>
+        <item>중랑구</item>
+    </string-array>
+</resources>
