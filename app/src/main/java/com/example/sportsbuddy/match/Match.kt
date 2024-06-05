@@ -1,4 +1,4 @@
-package com.example.sportsbuddy.matchlist
+package com.example.sportsbuddy.match
 
 data class Match(
     val title: String,

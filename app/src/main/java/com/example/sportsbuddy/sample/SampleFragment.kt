@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.sportsbuddy.R
-import com.example.sportsbuddy.databinding.FragmentMatchListBinding
 import com.example.sportsbuddy.databinding.FragmentSampleBinding
-import com.example.sportsbuddy.matchlist.MatchListAdapter
 
 class SampleFragment : Fragment() {
 

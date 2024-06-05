@@ -1,10 +1,11 @@
-package com.example.sportsbuddy.matchlist
+package com.example.sportsbuddy.match.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sportsbuddy.R
 import com.example.sportsbuddy.databinding.ItemMatchBinding
+import com.example.sportsbuddy.match.Match
 
 class MatchListAdapter(private val itemClick: (Match) -> (Unit))
     : RecyclerView.Adapter<MatchListAdapter.MatchListViewHolder>() {
@@ -14,7 +15,7 @@ class MatchListAdapter(private val itemClick: (Match) -> (Unit))
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): MatchListAdapter.MatchListViewHolder {
+    ): MatchListViewHolder {
         val binding = ItemMatchBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
@@ -23,7 +24,7 @@ class MatchListAdapter(private val itemClick: (Match) -> (Unit))
         return MatchListViewHolder(binding, itemClick)
     }
 
-    override fun onBindViewHolder(holder: MatchListAdapter.MatchListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MatchListViewHolder, position: Int) {
         holder.onBind(matchList[position])
     }
 

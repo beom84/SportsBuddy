@@ -1,4 +1,4 @@
-package com.example.sportsbuddy.matchlist
+package com.example.sportsbuddy.match.list
 
 import android.os.Bundle
 import android.util.Log
@@ -8,10 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.sportsbuddy.R
 import com.example.sportsbuddy.databinding.FragmentMatchListBinding
+import com.example.sportsbuddy.match.Match
 
 class MatchListFragment : Fragment() {
     private var _binding : FragmentMatchListBinding? = null
