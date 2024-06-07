@@ -15,4 +15,5 @@
     <color name="grey_item_stroke">#22222222</color>
     <color name="grey_content">#FF888888</color>
     <color name="grey_thumbnail_background">#FFB2B2B2</color>
+    <color name= "basic_background">#FF222222</color>
 </resources>
