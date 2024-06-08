@@ -68,7 +68,7 @@ fun TopAppBar(
                 Text(
                     text = title,
                     fontFamily = FontFamily(Font(R.font.pretendard_semibold)),
-                    fontSize = 16.sp,
+                    fontSize = 18.sp,
                     color = titleColor,
                     modifier = Modifier
                         .align(Alignment.Center)

@@ -45,6 +45,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sportsbuddy.R
+import com.example.sportsbuddy.enroll_match.TopAppBar
 
 @Composable
 fun FriendProfileScreen(modifier: Modifier = Modifier) {
@@ -61,21 +62,13 @@ fun FriendProfileScreen(modifier: Modifier = Modifier) {
             )
             .fillMaxSize()
     ) {
-        Column(
-            modifier = Modifier
-                .height(56.dp)
-                .fillMaxWidth(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = "프로필",
-                color = Color.White,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.ExtraBold,
-                textAlign = TextAlign.Center
-            )
-        }
+        TopAppBar(
+            onBackIconClick = {},
+            title = "프로필",
+            titleColor = colorResource(R.color.white),
+            onRightIconClick = { /*TODO*/ }, // 추후 마이페이지로 이동 가능하도록 구현
+            rightIconImgId = null
+        )
         Box(
             modifier = Modifier
                 .fillMaxWidth()
