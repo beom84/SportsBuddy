@@ -64,13 +64,14 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+//    implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.material3.android)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -81,4 +82,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
+
+    implementation( libs.ui)
+    implementation (libs.androidx.material)
 }

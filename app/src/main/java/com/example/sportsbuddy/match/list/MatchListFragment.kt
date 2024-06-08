@@ -1,5 +1,6 @@
 package com.example.sportsbuddy.match.list
 
+import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,8 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.IntentCompat.getSerializableExtra
 import com.example.sportsbuddy.R
 import com.example.sportsbuddy.databinding.FragmentMatchListBinding
+import com.example.sportsbuddy.enroll_match.EnrollMatchActivity
 import com.example.sportsbuddy.match.Match
 import com.example.sportsbuddy.match.detail.MatchDetailActivity
 
@@ -23,6 +27,16 @@ class MatchListFragment : Fragment() {
     private var selectedType = "종목"
     private var selectedGender = "성별"
     private var selectedArea = "지역"
+
+    private val enrollMatchActivityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val newMatch = result.data?.getSerializableExtra("MATCH_RESULT") as? Match
+            newMatch?.let {
+                adapter.addItem(it)
+            }
+        }
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +59,8 @@ class MatchListFragment : Fragment() {
     private fun initListener() {
         with(binding) {
             fab.setOnClickListener {
-                // floating button 클릭 시 이벤트
+                val intent = EnrollMatchActivity.getIntent(requireContext())
+                enrollMatchActivityResultLauncher.launch(intent)
             }
         }
     }
