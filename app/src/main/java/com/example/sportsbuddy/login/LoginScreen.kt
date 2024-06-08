@@ -1,5 +1,6 @@
 package com.example.sportsbuddy.login
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -19,13 +20,8 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -38,7 +34,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
@@ -48,8 +43,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sportsbuddy.R
+import com.example.sportsbuddy.myprofile.MyProfileActivity
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
 fun LoginScreen() {
@@ -73,12 +68,19 @@ fun LoginScreen() {
             modifier = Modifier.size(width = 100.dp, height = 57.dp)
         )
         Spacer(modifier = Modifier.height(23.dp))
-        Text(text = "SPORTS_BUDDY", fontSize = 20.sp, fontWeight = FontWeight.ExtraBold, color = Color.White)
-        Text(text = "Find your sportsmate!", fontSize = 13.sp,color = Color.White)
+        Text(
+            text = "SPORTS_BUDDY",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.ExtraBold,
+            color = Color.White
+        )
+        Text(text = "Find your sportsmate!", fontSize = 13.sp, color = Color.White)
         Spacer(modifier = Modifier.height(80.dp))
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 50.dp), horizontalArrangement = Arrangement.Center) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 50.dp), horizontalArrangement = Arrangement.Center
+        ) {
 
             Column {
                 CustomTextField(
@@ -98,16 +100,17 @@ fun LoginScreen() {
             }
             Spacer(modifier = Modifier.width(20.dp))
 
-            Column (horizontalAlignment = Alignment.CenterHorizontally){
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Spacer(modifier = Modifier.height(10.dp))
                 Button(
                     onClick = {
-                              if(inputId.equals(id)&&inputPassword.equals(password)){
-                                  Toast.makeText(context,"로그인 성공",Toast.LENGTH_SHORT).show()
-                                  //TODO: 화면 이동
-                              }else{
-                                  Toast.makeText(context,"아이디/비밀번호를 확인하세요",Toast.LENGTH_SHORT).show()
-                              }
+                        if (inputId.annotatedString.text == id && inputPassword.annotatedString.text == password) {
+                            Toast.makeText(context, "로그인 성공", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(context, MyProfileActivity::class.java)
+                            context.startActivity(intent)
+                        } else {
+                            Toast.makeText(context, "아이디/비밀번호를 확인하세요", Toast.LENGTH_SHORT).show()
+                        }
                     },
                     modifier = Modifier
                         .size(width = 87.dp, height = 80.dp)
@@ -121,7 +124,7 @@ fun LoginScreen() {
                 }
 
                 Spacer(modifier = Modifier.height(5.dp))
-                Text(text = "회원가입", color = colorResource(id = R. color.grayA5))
+                Text(text = "회원가입", color = colorResource(id = R.color.grayA5))
             }
         }
 
@@ -169,6 +172,10 @@ fun CustomTextField(
                 }
             }
         )
-        Divider(color = colorResource(id = R.color.line_gray), thickness = 1.dp, modifier = Modifier.width(160.dp)) // Add a white divider
+        Divider(
+            color = colorResource(id = R.color.line_gray),
+            thickness = 1.dp,
+            modifier = Modifier.width(160.dp)
+        ) // Add a white divider
     }
 }

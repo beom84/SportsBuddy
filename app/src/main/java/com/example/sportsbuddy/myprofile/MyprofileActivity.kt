@@ -4,18 +4,17 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-
-import com.example.sportsbuddy.databinding.ActivityLoginBinding
+import com.example.sportsbuddy.databinding.ActivityMyprofileBinding
 
 class MyProfileActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityMyprofileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityLoginBinding.inflate(layoutInflater)
-        binding.cvLogin .setContent {
+        binding = ActivityMyprofileBinding.inflate(layoutInflater)
+        binding.cvMyprofile .setContent {
             MyProfileScreen()
         }
         setContentView(binding.root)
