@@ -1,5 +1,7 @@
 package com.example.sportsbuddy.match.list
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.sportsbuddy.R
 import com.example.sportsbuddy.databinding.FragmentMatchListBinding
 import com.example.sportsbuddy.match.Match
@@ -19,6 +23,8 @@ class MatchListFragment : Fragment() {
 
     private lateinit var adapter : MatchListAdapter
     private val list = mutableListOf<Match>()
+
+    private lateinit var getResult: ActivityResultLauncher<Intent>
 
     private var selectedType = "종목"
     private var selectedGender = "성별"
@@ -40,12 +46,36 @@ class MatchListFragment : Fragment() {
         initMatchItems()
         initSpinner()
         initListener()
+
+        getResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data: Intent? = result.data
+                // 결과 처리
+                val resultMatch = data?.getSerializableExtra("match") as Match
+                adapter.addItem(resultMatch)
+            }
+        }
     }
 
     private fun initListener() {
         with(binding) {
             fab.setOnClickListener {
                 // floating button 클릭 시 이벤트
+                /**
+                 * 액티비티 시작할 때
+                 * 여기서 getResult.launch(액티비티 인텐트) 쓰고
+                 *
+                 * 그 액티비티에서는
+                 * val resultIntent = Intent()
+                 * resultIntent.putExtra("match",
+                 *     Match("테스트", "축구", 4, 22, "서울시 광진구", "안녕", 22, "남자",
+                 *     "초심자", "수요일 18시", resources.getString(R.string.match_content_example), R.drawable.test_image)
+                 * )
+                 * setResult(Activity.RESULT_OK, resultIntent)
+                 * finish()
+                 *
+                 * 이거 쓰면 여기로 정보 넘어옴다
+                 */
             }
         }
     }
