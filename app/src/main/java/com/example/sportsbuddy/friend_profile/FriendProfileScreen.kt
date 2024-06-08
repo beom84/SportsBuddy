@@ -104,7 +104,15 @@ fun FriendProfileScreen(modifier: Modifier = Modifier) {
             shape = RoundedCornerShape(8.dp)
         )
         Spacer(modifier = Modifier.height(16.dp))
-       InterestButtons()
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+            ,
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            InterestButton("쪽지보내기")
+        }
     }
 }
 
