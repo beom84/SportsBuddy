@@ -10,7 +10,7 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.example.sportsbuddy.databinding.ActivityMainBinding
 import com.example.sportsbuddy.match.list.MatchListFragment
-import com.example.sportsbuddy.sample.SampleFragment
+import com.example.sportsbuddy.message.MessageFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         binding.bnvMain.setOnItemSelectedListener { menu ->
             when (menu.itemId) {
                 R.id.menu_message -> {
-                    navigateTo<SampleFragment>()
+                    navigateTo<MessageFragment>()
                 }
                 R.id.menu_search -> {
                     navigateTo<MatchListFragment>()

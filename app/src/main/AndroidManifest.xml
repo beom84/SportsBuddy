@@ -22,7 +22,7 @@
             android:name=".friend_profile.FriendProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".sample.SampleActivity"
+            android:name=".message.MessageDetailActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
