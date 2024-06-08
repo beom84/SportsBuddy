@@ -147,7 +147,7 @@ fun CustomTextField(
             modifier = modifier,
             visualTransformation = visualTransformation,
             textStyle = TextStyle(
-                color = Color.Black,
+                color = Color.White,
                 fontSize = MaterialTheme.typography.bodyLarge.fontSize,
                 fontWeight = FontWeight.Normal,
                 textAlign = TextAlign.Start

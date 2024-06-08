@@ -48,13 +48,21 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sportsbuddy.R
+import com.google.accompanist.flowlayout.FlowRow
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+
 
 @Preview
 @Composable
 fun MyProfileScreen() {
 
     var editableText by remember { mutableStateOf("부타련") }
-    val interests = remember { mutableStateOf(listOf("농구", "야구", "볼링","헬스",)) }
+    val interests = remember { mutableStateOf(listOf("농구", "야구", "볼링","헬스","필라테스","풋살")) }
+    val context = LocalContext.current
 
     Column(
         modifier = Modifier
@@ -116,14 +124,19 @@ fun MyProfileScreen() {
             Spacer(modifier = Modifier.height(6.dp))
             InterestsSection(
                 interests = interests.value,
-                onAddClick = {
-                    // Handle the add click, for example, showing a dialog to add a new interest
+                onAddInterest = { newInterest ->
+                    interests.value = interests.value + newInterest
                 }
             )
             Spacer(modifier = Modifier.height(14.dp))
         }
         Button(
-            onClick = { /*TODO*/ },
+            onClick = {
+                      //TODO: 로그아웃
+                Toast
+                    .makeText(context, "로그아웃", Toast.LENGTH_SHORT)
+                    .show()
+                      },
             modifier = Modifier.size(width = 150.dp, height = 50.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF6D6D6D)
@@ -371,7 +384,6 @@ fun DrawEditLocation() {
         onNeighborhoodSelected = { selectedNeighborhood = it }
     )
 }
-
 @Composable
 fun InterestChip(
     interest: String,
@@ -396,18 +408,23 @@ fun InterestChip(
 }
 
 @Composable
-fun InterestsSection(interests: List<String>, onAddClick: () -> Unit) {
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .height(140.dp)
-        .background(
-            colorResource(id = R.color.textfield_gray),
-            shape = RoundedCornerShape(15.dp)
-        )
-        .padding(horizontal = 14.dp, vertical = 14.dp)) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),마
-            horizontalArrangement = Arrangement.spacedBy(11.dp)
+fun InterestsSection(interests: List<String>, onAddInterest: (String) -> Unit) {
+    val showDialog = remember { mutableStateOf(false) }
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(140.dp)
+            .background(
+                colorResource(id = R.color.textfield_gray),
+                shape = RoundedCornerShape(15.dp)
+            )
+            .padding(horizontal = 14.dp, vertical = 14.dp)
+    ) {
+        FlowRow(
+            modifier = Modifier.fillMaxWidth(),
+            mainAxisSpacing = 8.dp,
+            crossAxisSpacing = 8.dp
         ) {
             interests.forEach { interest ->
                 InterestChip(interest = interest)
@@ -419,9 +436,52 @@ fun InterestsSection(interests: List<String>, onAddClick: () -> Unit) {
             color = colorResource(id = R.color.icon_gray),
             fontSize = 14.sp,
             modifier = Modifier
-                .clickable { onAddClick() }
+                .clickable { showDialog.value = true }
                 .padding(4.dp)
+        )
+    }
+
+    if (showDialog.value) {
+        AddInterestDialog(
+            onDismiss = { showDialog.value = false },
+            onConfirm = { newInterest ->
+                onAddInterest(newInterest)
+                showDialog.value = false
+            }
         )
     }
 }
 
+
+@Composable
+fun AddInterestDialog(
+    onDismiss: () -> Unit,
+    onConfirm: (String) -> Unit
+) {
+    val newInterest = remember { mutableStateOf("") }
+
+    AlertDialog(
+        onDismissRequest = { onDismiss() },
+        confirmButton = {
+            TextButton(onClick = {
+                onConfirm(newInterest.value)
+                onDismiss()
+            }) {
+                Text("추가")
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = { onDismiss() }) {
+                Text("취소")
+            }
+        },
+        title = { Text("관심종목 추가") },
+        text = {
+            OutlinedTextField(
+                value = newInterest.value,
+                onValueChange = { newInterest.value = it },
+                label = { Text("관심종목 입력") }
+            )
+        }
+    )
+}
