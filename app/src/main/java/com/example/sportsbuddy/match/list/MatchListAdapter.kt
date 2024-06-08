@@ -36,6 +36,11 @@ class MatchListAdapter(private val itemClick: (Match) -> (Unit))
         notifyDataSetChanged()
     }
 
+    fun addItem(newItem: Match) {
+        matchList.add(newItem)
+        notifyDataSetChanged()
+    }
+
     class MatchListViewHolder(
         private val binding: ItemMatchBinding,
         private val itemClick: (Match) -> Unit
