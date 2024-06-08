@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -45,7 +46,8 @@ fun EnrollMatchScreen(modifier: Modifier = Modifier) {
     var maxParticipants by remember { mutableStateOf(20) }
     var description by remember { mutableStateOf("") }
 
-    Column(modifier = Modifier.background(Color(0x222222))) {
+    Column(modifier = Modifier.background(Color(0x222222))
+        .fillMaxSize()) {
         TopAppBar(
             onBackIconClick = {},
             title = "매칭등록",
@@ -69,6 +71,7 @@ fun EnrollMatchScreen(modifier: Modifier = Modifier) {
                     .padding(20.dp)
                     .background(Color(0xFF2F2F2F))
                     .fillMaxWidth()
+                    .height(640.dp)
             ) {
                 Row(
                     modifier = Modifier.padding(start = 16.dp),
@@ -211,7 +214,7 @@ fun EnrollMatchScreen(modifier: Modifier = Modifier) {
                     onValueChange = { description = it },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(150.dp),
+                        .height(300.dp),
                     textStyle = TextStyle(Color(0xFF8E8E8E)),
                     placeholder = { Text("내용을 입력하세요", color = Color(0xFF8E8E8E)) },
                     colors = TextFieldDefaults.textFieldColors(
@@ -219,7 +222,7 @@ fun EnrollMatchScreen(modifier: Modifier = Modifier) {
                         textColor = Color(0xFF8E8E8E),
                         placeholderColor = Color(0xFF8E8E8E)
                     ),
-                    maxLines = 10
+                    maxLines = 15
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -227,7 +230,7 @@ fun EnrollMatchScreen(modifier: Modifier = Modifier) {
         }
         Button(
             onClick = { /* TODO: 등록하기 */ },
-            modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp, bottom = 28.dp),
+            modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp, bottom = 28.dp).height(50.dp),
             colors = ButtonDefaults.buttonColors(
                 contentColor = colorResource(id = R.color.mint),
                 containerColor = colorResource(id = R.color.mint)
