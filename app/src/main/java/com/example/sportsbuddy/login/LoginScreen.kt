@@ -42,6 +42,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.sportsbuddy.MainActivity
 import com.example.sportsbuddy.R
 import com.example.sportsbuddy.match.list.MatchListFragment
 
@@ -107,8 +108,7 @@ fun LoginScreen() {
                     onClick = {
                         if (inputId.annotatedString.text == id && inputPassword.annotatedString.text == password) {
                             Toast.makeText(context, "로그인 성공", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(context, MatchListFragment::class.java)
-                            context.startActivity(intent)
+                            context.startActivity(MainActivity.getIntent(context))
                         } else {
                             Toast.makeText(context, "아이디/비밀번호를 확인하세요", Toast.LENGTH_SHORT).show()
                         }

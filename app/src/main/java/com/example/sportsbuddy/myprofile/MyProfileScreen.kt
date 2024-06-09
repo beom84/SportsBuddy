@@ -58,7 +58,7 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.foundation.layout.FlowRow
-import com.example.sportsbuddy.login.LoginFragment
+import com.example.sportsbuddy.login.LoginActivity
 
 
 @Preview
@@ -158,7 +158,7 @@ fun MyProfileScreen() {
         }
         Button(
             onClick = {
-                val intent = Intent(context, LoginFragment::class.java)
+                val intent = Intent(context, LoginActivity::class.java)
                 context.startActivity(intent)
                 Toast
                     .makeText(context, "로그아웃", Toast.LENGTH_SHORT)
