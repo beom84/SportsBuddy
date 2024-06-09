@@ -20,8 +20,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material.Divider
 import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material3.Button
@@ -64,7 +66,7 @@ import com.example.sportsbuddy.login.LoginActivity
 fun MyProfileScreen() {
 
     var editableText by remember { mutableStateOf("부타련") }
-    val interests = remember { mutableStateOf(listOf("농구", "야구", "볼링","헬스","필라테스","풋살")) }
+    val interests = remember { mutableStateOf(listOf("농구", "야구", "볼링", "헬스", "필라테스", "풋살")) }
     val context = LocalContext.current
 
     Column(
@@ -73,14 +75,35 @@ fun MyProfileScreen() {
             .background(colorResource(id = R.color.background_black)),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(modifier = Modifier.height(85.dp))
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(55.dp)
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+
+            Icon(imageVector = Icons.Default.Clear, contentDescription = "", tint = Color.White)
+            Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                Text(text = "프로필 설정", fontSize = 18.sp, color = Color.White)
+            }
+            Text(text = "저장", fontSize = 18.sp, color = Color.White, modifier = Modifier.clickable {
+                Toast
+                    .makeText(context, "로그아웃", Toast.LENGTH_SHORT)
+                    .show()
+
+            })
+
+        }
+
+        Divider(color = Color.White)
+        Spacer(modifier = Modifier.height(29.dp))
         Image(
-            painter = painterResource(id = R.drawable.img_profile_my1),
+            painter = painterResource(id = R.drawable.img_profile),
             contentDescription = "",
             modifier = Modifier
                 .size(160.dp)
                 .clip(CircleShape)
-
         )
         Spacer(modifier = Modifier.height(20.dp))
 
@@ -140,7 +163,7 @@ fun MyProfileScreen() {
                 Toast
                     .makeText(context, "로그아웃", Toast.LENGTH_SHORT)
                     .show()
-                      },
+            },
             modifier = Modifier.size(width = 150.dp, height = 50.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF6D6D6D)
@@ -388,6 +411,7 @@ fun DrawEditLocation() {
         onNeighborhoodSelected = { selectedNeighborhood = it }
     )
 }
+
 @Composable
 fun InterestChip(
     interest: String,
