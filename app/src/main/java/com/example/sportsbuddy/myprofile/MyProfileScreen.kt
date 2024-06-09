@@ -65,7 +65,7 @@ import com.example.sportsbuddy.login.LoginActivity
 @Composable
 fun MyProfileScreen() {
 
-    var editableText by remember { mutableStateOf("부타련") }
+    var editableText by remember { mutableStateOf("에이치씨아이") }
     val interests = remember { mutableStateOf(listOf("농구", "야구", "볼링", "헬스", "필라테스", "풋살")) }
     val context = LocalContext.current
 

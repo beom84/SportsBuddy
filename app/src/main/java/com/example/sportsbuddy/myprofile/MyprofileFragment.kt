@@ -1,21 +1,35 @@
 package com.example.sportsbuddy.myprofile
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.sportsbuddy.databinding.FragmentMyprofileBinding
 
-class MyProfileFragment :  Fragment()  {
+class MyProfileFragment : Fragment() {
 
-    private lateinit var binding: FragmentMyprofileBinding
+    private var _binding: FragmentMyprofileBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentMyprofileBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        binding = FragmentMyprofileBinding.inflate(layoutInflater)
-        binding.cvMyprofile .setContent {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.cvMyprofile.setContent {
             MyProfileScreen()
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
 
