@@ -65,7 +65,7 @@ import com.example.sportsbuddy.login.LoginActivity
 @Composable
 fun MyProfileScreen() {
 
-    var editableText by remember { mutableStateOf("에이치씨아이") }
+    var editableText by remember { mutableStateOf("에이치씨아이ㅗ") }
     val interests = remember { mutableStateOf(listOf("농구", "야구", "볼링", "헬스", "필라테스", "풋살")) }
     val context = LocalContext.current
 
@@ -89,7 +89,7 @@ fun MyProfileScreen() {
             }
             Text(text = "저장", fontSize = 18.sp, color = Color.White, modifier = Modifier.clickable {
                 Toast
-                    .makeText(context, "로그아웃", Toast.LENGTH_SHORT)
+                    .makeText(context, "저장 되었습니다", Toast.LENGTH_SHORT)
                     .show()
 
             })

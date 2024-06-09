@@ -76,7 +76,7 @@ fun AbilitiesSpinner(
             ) {
                 Text(
                     selectedAbility?.name ?: "'Ability' 선택",
-                    modifier = Modifier.align(Alignment.Center)
+                    modifier = Modifier.align(Alignment.Center), color = Color.White
                 )
             }
 

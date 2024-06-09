@@ -66,7 +66,7 @@ fun SportsSpinner(
             ) {
                 Text(
                     selectedSport?.name ?: "'스포츠' 선택",
-                    modifier = Modifier.align(Alignment.Center)
+                    modifier = Modifier.align(Alignment.Center), color = Color.White
                 )
             }
 

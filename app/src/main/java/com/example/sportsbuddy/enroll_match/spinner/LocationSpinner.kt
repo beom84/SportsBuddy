@@ -75,7 +75,7 @@ fun LocationSpinner(
             ) {
                 Text(
                     selectedDistrict?.name ?: "'구' 선택",
-                    modifier = Modifier.align(Alignment.Center)
+                    modifier = Modifier.align(Alignment.Center), color = Color.White
                 )
             }
 
@@ -123,7 +123,7 @@ fun LocationSpinner(
                 ) {
                     Text(
                         selectedNeighborhood?.name ?: "'동' 선택",
-                        modifier = Modifier.align(Alignment.Center)
+                        modifier = Modifier.align(Alignment.Center), color = Color.White
                     )
                 }
 
