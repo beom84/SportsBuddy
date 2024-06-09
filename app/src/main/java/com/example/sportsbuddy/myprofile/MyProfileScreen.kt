@@ -1,5 +1,6 @@
 package com.example.sportsbuddy.myprofile
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -50,10 +51,12 @@ import androidx.compose.ui.unit.sp
 import com.example.sportsbuddy.R
 import com.google.accompanist.flowlayout.FlowRow
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import com.example.sportsbuddy.login.LoginActivity
 
 
 @Preview
@@ -132,7 +135,8 @@ fun MyProfileScreen() {
         }
         Button(
             onClick = {
-                      //TODO: 로그아웃
+                val intent = Intent(context, LoginActivity::class.java)
+                context.startActivity(intent)
                 Toast
                     .makeText(context, "로그아웃", Toast.LENGTH_SHORT)
                     .show()
