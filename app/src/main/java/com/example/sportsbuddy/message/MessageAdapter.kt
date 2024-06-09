@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sportsbuddy.R
 import com.example.sportsbuddy.databinding.ItemMessageBinding
 
-class MessageAdapter(private val itemClick: (Message) -> (Unit))
+class MessageAdapter(private val itemClick: (String) -> (Unit))
     : RecyclerView.Adapter<MessageAdapter.MessageViewHolder>() {
 
     private val messageList = mutableListOf<Message>()
@@ -37,7 +37,7 @@ class MessageAdapter(private val itemClick: (Message) -> (Unit))
 
     class MessageViewHolder(
         private val binding: ItemMessageBinding,
-        private val itemClick: (Message) -> Unit
+        private val itemClick: (String) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(item: Message) {
@@ -52,7 +52,7 @@ class MessageAdapter(private val itemClick: (Message) -> (Unit))
                 ivThumbnail.clipToOutline = true
 
                 root.setOnClickListener {
-                    itemClick(item)
+                    itemClick(item.userName)
                 }
             }
         }
