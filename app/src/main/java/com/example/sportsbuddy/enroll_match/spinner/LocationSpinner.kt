@@ -49,7 +49,7 @@ fun LocationSpinner(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 37.dp)
+            .padding(start = 35.dp)
             .padding(end = 37.dp),
         horizontalArrangement = Arrangement.Center
     ) {
@@ -65,11 +65,7 @@ fun LocationSpinner(
                         isDistrictDropdownExpanded = !isDistrictDropdownExpanded
                     }
                     .padding(5.dp)
-                    .border(
-                        width = 1.dp,
-                        color = Color.LightGray,
-                        shape = RoundedCornerShape(10.dp)
-                    )
+
                     .background(
                         color = colorResource(id = R.color.mint),
                         shape = RoundedCornerShape(8.dp)
@@ -124,11 +120,7 @@ fun LocationSpinner(
                             }
                         }
                         .padding(5.dp)
-                        .border(
-                            width = 1.dp,
-                            color = Color.LightGray,
-                            shape = RoundedCornerShape(10.dp)
-                        )
+
                         .background(
                             color = colorResource(id = R.color.mint),
                             shape = RoundedCornerShape(8.dp)

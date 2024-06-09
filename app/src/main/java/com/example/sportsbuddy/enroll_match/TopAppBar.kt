@@ -6,11 +6,15 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.IconButton
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material3.Icon
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -47,17 +51,10 @@ fun TopAppBar(
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxWidth()
+                    .padding(start = 16.dp)
             ) {
-                IconButton(
-                    onClick = onBackIconClick,
-                    modifier = Modifier.align(Alignment.CenterStart)
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.back_white_icn),
-                        modifier = Modifier.size(25.dp),
-                        contentDescription = "뒤로 가기"
-                    )
-                }
+                Icon(imageVector = Icons.Default.Clear, contentDescription = "", tint = Color.White)
+
             }
             // title
             Box(

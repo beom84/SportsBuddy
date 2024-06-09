@@ -66,11 +66,7 @@ fun AbilitiesSpinner(
                         isAbilityDropdownExpanded = !isAbilityDropdownExpanded
                     }
                     .padding(5.dp)
-                    .border(
-                        width = 1.dp,
-                        color = Color.LightGray,
-                        shape = RoundedCornerShape(10.dp)
-                    )
+
                     .background(
                         color = colorResource(id = R.color.mint),
                         shape = RoundedCornerShape(8.dp)

@@ -94,7 +94,7 @@ fun FriendProfileScreen(modifier: Modifier = Modifier) {
                 .height(285.dp)
                 .padding(start = 20.dp, end = 20.dp),
             textStyle = TextStyle(Color(0xFF8E8E8E)),
-            placeholder = { Text("내용을 입력하세요", color = Color(0xFF8E8E8E)) },
+            placeholder = { Text("저는 농구가 제일 좋아요", color = Color(0xFF8E8E8E)) },
             colors = TextFieldDefaults.textFieldColors(
                 backgroundColor = Color(0xFF2F2F2F),
                 textColor = Color(0xFF8E8E8E),

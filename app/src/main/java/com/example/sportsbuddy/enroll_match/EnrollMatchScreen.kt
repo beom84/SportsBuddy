@@ -207,7 +207,6 @@ fun EnrollMatchScreen(onMatchEnroll: (Match) -> Unit) {
                     )
                 }
                 Row(
-                    horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
@@ -226,13 +225,12 @@ fun EnrollMatchScreen(onMatchEnroll: (Match) -> Unit) {
                             Text(
                                 "모집인원을 입력하세요",
                                 color = Color(0xFF8E8E8E),
-                                fontSize = 16.sp
+                                fontSize = 20.sp
                             )
                         },
                         colors = TextFieldDefaults.textFieldColors(
                             backgroundColor = Color(0xFF2F2F2F),
-                            textColor = Color(0xFF8E8E8E),
-                            placeholderColor = Color(0xFF8E8E8E)
+                            textColor = Color(0xFF8E8E8E)
                         ),
                         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number)
                     )
@@ -315,11 +313,11 @@ fun EnrollMatchScreen(onMatchEnroll: (Match) -> Unit) {
     }
 }
 
-//@Preview
-//@Composable
-//private fun EnrollMatchScreenPreview() {
-//    EnrollMatchScreen()
-//}
+@Preview
+@Composable
+private fun EnrollMatchScreenPreview() {
+    EnrollMatchScreen({ match -> })
+}
 
 
 
