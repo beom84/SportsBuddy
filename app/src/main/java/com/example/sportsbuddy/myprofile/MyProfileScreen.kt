@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalLayoutApi::class)
+
 package com.example.sportsbuddy.myprofile
 
 import android.content.Intent
@@ -9,6 +11,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -51,14 +54,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sportsbuddy.R
-import com.google.accompanist.flowlayout.FlowRow
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import com.example.sportsbuddy.login.LoginActivity
+import androidx.compose.foundation.layout.FlowRow
+import com.example.sportsbuddy.login.LoginFragment
 
 
 @Preview
@@ -158,7 +158,7 @@ fun MyProfileScreen() {
         }
         Button(
             onClick = {
-                val intent = Intent(context, LoginActivity::class.java)
+                val intent = Intent(context, LoginFragment::class.java)
                 context.startActivity(intent)
                 Toast
                     .makeText(context, "로그아웃", Toast.LENGTH_SHORT)
@@ -451,11 +451,10 @@ fun InterestsSection(interests: List<String>, onAddInterest: (String) -> Unit) {
     ) {
         FlowRow(
             modifier = Modifier.fillMaxWidth(),
-            mainAxisSpacing = 8.dp,
-            crossAxisSpacing = 8.dp
+
         ) {
             interests.forEach { interest ->
-                InterestChip(interest = interest)
+                InterestChip(interest = interest, modifier = Modifier.padding(4.dp))
             }
         }
         Spacer(modifier = Modifier.height(8.dp))

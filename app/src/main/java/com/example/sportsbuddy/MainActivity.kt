@@ -11,6 +11,7 @@ import androidx.fragment.app.replace
 import com.example.sportsbuddy.databinding.ActivityMainBinding
 import com.example.sportsbuddy.match.list.MatchListFragment
 import com.example.sportsbuddy.message.MessageFragment
+import com.example.sportsbuddy.myprofile.MyProfileFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                     navigateTo<MatchListFragment>()
                 }
                 R.id.menu_profile -> {
-//                    navigateTo<~Fragment>()
+                    navigateTo<MyProfileFragment>()
                 }
             }
             true

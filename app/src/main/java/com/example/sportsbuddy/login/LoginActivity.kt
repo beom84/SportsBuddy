@@ -1,28 +1,25 @@
 package com.example.sportsbuddy.login
 
-import android.content.Context
-import android.content.Intent
+
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 
-import com.example.sportsbuddy.databinding.ActivityLoginBinding
+import com.example.sportsbuddy.databinding.FragmentLoginBinding
 
-class LoginActivity : AppCompatActivity() {
+class LoginFragment : Fragment() {
 
-    private lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: FragmentLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = FragmentLoginBinding.inflate(layoutInflater)
         binding.cvLogin .setContent {
             LoginScreen()
         }
-        setContentView(binding.root)
+
     }
 
-    companion object {
-        fun getIntent(context: Context) = Intent(context, LoginActivity::class.java)
-    }
+
 }
 
