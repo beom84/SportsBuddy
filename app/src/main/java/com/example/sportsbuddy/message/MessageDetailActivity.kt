@@ -39,6 +39,7 @@ class MessageDetailActivity : AppCompatActivity() {
                     listOf(
                         Chat(username, "안녕하세요. 같이 하고 싶어요.", 0),
                         Chat(username, "언제가 좋으세요?", 1),
+                        Chat(username, "오늘 저녁 9시 어때요?!", 0),
                     )
                 )
             }

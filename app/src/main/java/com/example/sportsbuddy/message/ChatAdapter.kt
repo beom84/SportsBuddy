@@ -19,6 +19,7 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class BotViewHolder (val botbinding: BotChatMessageBinding): RecyclerView.ViewHolder(botbinding.root){
         private  val chatText = botbinding.tvMessage
         fun bind(item: Chat){
+            botbinding.tvBotName.text = item.useName
             chatText.text = item.message
         }
 
