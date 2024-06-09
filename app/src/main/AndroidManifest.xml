@@ -16,6 +16,10 @@
             android:name=".sample.SampleActivity"
             android:exported="false" />
         <activity
+            android:name=".message.MessageDetailActivity"
+
+            android:exported="false" />
+        <activity
             android:name=".login.LoginActivity"
             android:exported="false" />
         <activity
